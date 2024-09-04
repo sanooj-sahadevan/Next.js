@@ -1,36 +1,15 @@
-// import React from 'react'
+import { Key, ReactElement, JSXElementConstructor, ReactNode, ReactPortal, AwaitedReactNode } from "react"
 
-// const fecth = async () => {
-//     type User = {
-//         name: string, id: number, username: string, email: string, phone: string
-
-//     }
-
-
-//     try {
-//         const response = await fetch('https://jsonplaceholder.typicode.com/users')
-//         if (!response.ok) {
-//             return { messge: 'error' }
-//         }
-//         let users: User[] = await response.json()
-//         return (
-//             <div>
-//                 <p>data fectch</p>
+export default async function Page() {
+    let data = await fetch('https://api.vercel.app/blog')
+    let posts = await data.json()
+    console.log(posts);
     
-//          {users.map((user)=>{
-//             <p key={user.id}>{user.name}</p>
-//          })}
-    
-//             </div>
-    
-//         )
-    
-
-//     } catch (error) {
-// console.error('erorrrrrrrrrrrr');
-
-//     }
-   
-// }
-
-// export default fecth
+    return (
+      <ul>
+        {posts.map((post: { id: Key | null | undefined; title: string | number | bigint | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<AwaitedReactNode> | null | undefined }) => (
+          <li key={post.id}>{post.title}</li>
+        ))}
+      </ul>
+    )
+  }
