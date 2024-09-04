@@ -18,17 +18,21 @@ export default function RootLayout({
 
       <body className={inter.className}>
 
-        <header style={{backgroundColor:"green",padding:"10px"}}>
-
+        {/* <header style={{backgroundColor:"green",padding:"10px"}} >
           <h1>Header</h1>
-        </header>
+        </header> */}
 
         {children}
 
-        <footer style={{backgroundColor:"yellow",padding:"10px"}} >
+        <h2>Nested Loyout</h2>
+        <h3>Nested Loyout</h3>
+        <h4>Nested Loyout</h4>
+        <h5>Nested Loyout</h5>
 
-          <h1 >Footer</h1>
-        </footer>
+        {/* <footer>
+
+          <h1 className="bg-black-500 w-24 h-24" >Footer</h1>
+        </footer> */}
       </body>
 
     </html>
